@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pacientes</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 600px; margin: 40px auto; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background: #f0f0f0; }
+    button { margin: 10px; padding: 10px 20px; }
+    form { margin-bottom: 30px; }
+    input { padding: 8px; margin: 5px; width: calc(100% - 22px); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Pacientes</h1>
+
+    <!-- Formulario para crear nuevo paciente -->
+    <form id="createPatientForm">
+      <input type="text" name="patient_name" placeholder="Nombre completo" required />
+      <input type="email" name="patient_email" placeholder="Email" required />
+      <input type="tel" name="patient_phone" placeholder="Teléfono" required />
+      <input type="password" name="password" placeholder="Contraseña" required />
+      <button type="submit">Crear Paciente</button>
+    </form>
+
+    <button onclick="getAll()">Recargar</button>
+    <button onclick="window.location.href='dashboard.html'">Volver al Dashboard</button>
+    <div id="msg"></div>
+    <table id="patientsTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="../public/patients.js"></script>
+  <script>
+    // Carga la lista al cargar la página
+    getAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestión de Citas</title>
+</head>
+<body>
+
+  <h1>Gestión de Citas</h1>
+
+  <div id="msg"></div>
+
+  <table id="appointmentsTable" style="display:none;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Paciente</th>
+        <th>Doctor</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Motivo</th>
+        <th>Descripción</th>
+        <th>Ubicación ID</th>
+        <th>Método de Pago ID</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Crear Nueva Cita</h2>
+  <form id="createAppointmentForm">
+    <input name="patient_id" type="number" placeholder="ID Paciente" required />
+    <input name="doctor_id" type="number" placeholder="ID Doctor" required />
+    <input type="date" name="appointment_date" required />
+    <input type="time" name="appointment_time" required />
+    <input name="reason" placeholder="Motivo" required />
+    <input name="description" placeholder="Descripción (opcional)" />
+    <input name="location_id" type="number" placeholder="ID Ubicación" required />
+    <input name="payment_id" type="number" placeholder="ID Método de Pago" required />
+    <select name="status" required>
+      <option value="">Selecciona estado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Confirmada">Confirmada</option>
+      <option value="Cancelada">Cancelada</option>
+    </select>
+    <button type="submit">Crear cita</button>
+  </form>
+
+  <script src="../public/appointments.js"></script>
+</body>
+</html>

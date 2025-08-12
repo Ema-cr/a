@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 400px; margin: 40px auto; text-align: center; }
+    button { margin: 10px; padding: 12px 24px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard</h1>
+    <button onclick="window.location.href='doctors.html'">Ver Doctores</button>
+    <button onclick="window.location.href='patients.html'">Ver Pacientes</button>
+    <button onclick="window.location.href='appointments.html'">Ver Citas</button>
+    <button onclick="window.location.href='charge.html'">Cargar datos</button>
+    <button onclick="logout()">Cerrar sesión</button>
+    <p id="msg"></p>
+  </div>
+  <script>
+    function logout() {
+      fetch('http://localhost:3000/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      })
+      .then(() => {
+        window.location.href = 'login.html';
+      })
+      .catch(() => {
+        document.getElementById('msg').textContent = 'Error cerrando sesión';
+      });
+    }
+  </script>
+</body>
+</html>
